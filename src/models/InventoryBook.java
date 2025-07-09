@@ -10,7 +10,7 @@ public class InventoryBook {
   private long quantity;
   private boolean saleable;
 
-  InventoryBook(String ISBN, String title, Date publishDate, double price, boolean saleable) {
+  public InventoryBook(String ISBN, String title, Date publishDate, double price, boolean saleable) {
     this.ISBN = ISBN;
     this.title = title;
     this.publishDate = publishDate;

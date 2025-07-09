@@ -9,7 +9,7 @@ import java.util.Map;
 public class Inventory {
   private static Map<String, InventoryBook> books;
 
-  Inventory() {
+  public Inventory() {
     books = new HashMap<>();
   }
 
@@ -24,15 +24,13 @@ public class Inventory {
   }
 
   public void removeOutdated(long numOfYears) {
-    for (Map.Entry<String, InventoryBook> entry : books.entrySet()) {
+    books.entrySet().removeIf(entry -> {
       Date oldDate = entry.getValue().getPublishDate();
       LocalDate localDate = oldDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
       long pubYear = localDate.getYear();
       long currentYear = LocalDate.now().getYear(); 
-      if (currentYear - pubYear <= 0) {
-        books.remove(entry.getKey());
-      }
-    }
+      return currentYear - pubYear >= numOfYears;
+    });
   }
 
   public static InventoryBook getBook(String ISBN) {
