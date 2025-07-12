@@ -4,6 +4,7 @@ import java.util.Date;
 
 import src.interfaces.Buyable;
 import src.interfaces.Sendable;
+import src.services.BuyingService;
 
 public class EBook extends Book implements Sendable, Buyable {
   private String fileType;
@@ -24,7 +25,8 @@ public class EBook extends Book implements Sendable, Buyable {
 
   @Override
   public double buy(String email, String address) {
-    return buy(email, address);
+    BuyingService.addSendableBook(this);
+    return BuyingService.buy(getISBN(), 1, email, address);
   }
 
 }

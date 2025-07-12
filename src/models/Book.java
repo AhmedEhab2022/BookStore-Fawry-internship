@@ -2,7 +2,7 @@ package src.models;
 
 import java.util.Date;
 
-public class Book {
+public abstract class Book {
   private String ISBN;
   private String title;
   private Date publishDate;

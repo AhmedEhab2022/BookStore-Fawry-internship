@@ -14,7 +14,7 @@ A Java-based Bookstore Management System developed as part of the Fawry internsh
 
 The following diagram illustrates the main classes, interfaces, and their relationships:
 
-![Bookstore System Class Diagram](assets/bookstore-system-class_diagram.drawio.png)
+![Bookstore System Class Diagram](assets/bookstore-system-class_diagram.png)
 
 ## Project Structure
 
@@ -44,7 +44,7 @@ assets/
 
 1. **Clone the repository**
    ```sh
-   git clone <repository-url>
+   git clone https://github.com/AhmedEhab2022/BookStore-Fawry-internship
    ```
 2. **Navigate to the project directory**
    ```sh
@@ -94,26 +94,26 @@ public class Main {
     Date date2023 = cal.getTime();
     InventoryBook book1 = new InventoryBook("978-0134685991", "Effective Java", date2023, 45.99, true);
     inventory.add(book1);
-    System.out.println("✓ Added: Effective Java (2023)");
+    System.out.println("Added: Effective Java (2023)");
 
     // Older book (2010)
     cal.set(2010, Calendar.MARCH, 15);
     Date date2010 = cal.getTime();
     InventoryBook book2 = new InventoryBook("978-0321334879", "Effective C++", date2010, 39.99, true);
     inventory.add(book2);
-    System.out.println("✓ Added: Effective C++ (2010)");
+    System.out.println("Added: Effective C++ (2010)");
 
     // Very recent book (2024)
     cal.set(2024, Calendar.JUNE, 10);
     Date date2024 = cal.getTime();
     InventoryBook book3 = new InventoryBook("978-1617294945", "Spring in Action", date2024, 49.99, true);
     inventory.add(book3);
-    System.out.println("✓ Added: Spring in Action (2024)");
+    System.out.println("Added: Spring in Action (2024)");
 
     // Add duplicate to test quantity increase
     InventoryBook book1Duplicate = new InventoryBook("978-0134685991", "Effective Java", date2023, 45.99, true);
     inventory.add(book1Duplicate);
-    System.out.println("✓ Added duplicate: Effective Java (quantity should increase)");
+    System.out.println("Added duplicate: Effective Java (quantity should increase)");
 
     // Check book availability
     System.out.println("\nChecking book availability:");
@@ -204,57 +204,6 @@ public class Main {
 }
 ```
 
-## Sample Output
-```
-=== Bookstore System Test ===
-
-1. Testing ADD functionality:
-Adding books to inventory...
-Added: Effective Java (2023)
-Added: Effective C++ (2010)
-Added: Spring in Action (2024)
-Added duplicate: Effective Java (quantity should increase)
-
-Checking book availability:
-Effective Java available: true
-Effective C++ available: true
-Spring in Action available: true
-Effective Java quantity: 2
-
-2. Testing REMOVE OUTDATED functionality:
-Testing removeOutdated with 10 years threshold...
-Before removal:
-Effective Java (2023) available: true
-Effective C++ (2010) available: true
-Spring in Action (2024) available: true
-
-After removing books older than 10 years:
-Effective Java (2023) available: true
-Effective C++ (2010) available: false
-Spring in Action (2024) available: true
-
-Testing removeOutdated with 5 years threshold...
-After removing books older than 5 years:
-Effective Java (2023) available: true
-Spring in Action (2024) available: true
-
-3. Testing BUY functionality:
-Added test book with quantity: 2
-
-Testing successful purchase:
-Purchase successful! Price: $29.99
-Remaining quantity: 1
-
-Testing purchase of remaining stock:
-Purchase successful! Price: $29.99
-Book still available: false
-
-Testing purchase of unavailable book:
-Purchase failed: The Book is not Available Or it is not for sale
-
-Testing purchase with insufficient stock:
-Not enough stock for book: Limited Stock Book
-Purchase successful! Price: $19.99
-
-=== All tests completed ===
-```
+## Console Output
+![Console Output](assets/console_output_1.png)
+![Console Output](assets/console_output_2.png)

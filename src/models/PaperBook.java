@@ -26,7 +26,8 @@ public class PaperBook extends Book implements Shippable, Buyable {
 
   @Override
   public double buy(String email, String address) {
-    return BuyingService.buy(address, stockQuantity, email, address);
+    BuyingService.addShippableBook(this);
+    return BuyingService.buy(getISBN(), stockQuantity, email, address);
   }
 
   public String getStockName() {
